@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Booking</title>
+  <link rel="stylesheet" type="text/css" href="booking.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <style type="text/css">
+      section
+      {
+        margin-top: -22px;
+      }
+    </style>
+</head>
+<body>
+  <nav class="navbar navbar-inverse bg-dark" style="height: 65px;width: auto">
+      <div class="container-fluid">
+        <div class="navbar-header" >
+        <a class="navbar-brand" style="font-size: 25px"><b>SDM INSTITUTE OF TECHNOLOGY</b></a>
+        </div>
+          <ul class="nav navbar-nav navbar-right" style="font-size: 20px">
+            <li><a href="/logout"><span class="glyphicon glyphicon-log-in" mx-0px> LOGOUT</span></a></li>
+          </ul>
+      </div>
+  </nav>
+
+<h10><span class="badge badge-light" font="5px">Welcome,{{request.user.first_name}}!!</span></h3>
+{% if messages %}
+    {% for message in messages %}
+<div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+{{ message }}
+<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+  <span aria-hidden="true">&times;</span>
+</button>
+</div>
+   {% endfor %}
+{% endif %}
+  <section>
+
+    <div class="container con" align="center" >
+      <br>
+     
+     <form method="POST" action="/book">
+      {%csrf_token%}
+        <div class="form-group">
+          <label for="club"><font-size="5pt">Club</label>
+          <input type="text" class="form-control" id="club"name="club" >
+        </div>
+        <div class="form-group">
+          <label for="post">Your Post</label>
+          <input type="text" class="form-control" id="post"name="post" >
+        </div>
+
+        <div class="form-group">
+          <label for="requirement">Requirement</label>
+          <textarea class="form-control" id="requirement" rows="3" name="requirement"></textarea>
+        </div>
+
+   <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+  </div>
+  </section>
+
+
+
+      <script src="booking.js">
+
+</script>
+
+
+  </body>
+</html>

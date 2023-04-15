@@ -1,0 +1,82 @@
+<html>
+<head>
+  <title>STUDENT LOGIN</title>
+
+  <!-- CSS only -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+  <!-- JS, Popper.js, and jQuery -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+
+    </style>
+</head>
+<body>
+  <nav class="navbar navbar-inverse bg-dark" style="height: 65px;width: auto">
+      <div class="container-fluid">
+        <div class="navbar-header" >
+        <a class="navbar-brand " style="font-size: 25px"><b>SDM INSTITUTE OF TECHNOLOGY</b></a>
+        </div>
+
+
+          <ul class="nav navbar-nav" style="font-size: 20px">
+
+          </ul>
+          <ul class="nav navbar-nav navbar-right" style="font-size: 20px">
+
+
+              <li><a href="/register"><span class="glyphicon glyphicon-user">REGISTER</span></a></li>
+              <li><a href="/admin"><span class="glyphicon glyphicon-user"> ADMIN</span></a></li>
+
+
+          </ul>
+      </div>
+  </nav>
+
+
+
+  {% if messages %}
+      {% for message in messages %}
+  <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+{{ message }}
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+  </div>
+     {% endfor %}
+  {% endif %}
+
+  <section>
+
+    <div class="container con" align="center" >
+      <br>
+     
+
+
+    <form method="POST" action="/login">
+      {%csrf_token%}
+  <div class="form-group">
+    <label for="exampleInputEmail1" style="margin-right:320px; font-size: 20px">Email address</label>
+    <input type="email" class="form-control" id="exampleInputEmail1" name="loginemail" aria-describedby="emailHelp"required style="height: 35px; width: 450px">
+    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1"  style="margin-right:350px; font-size: 20px">Password</label>
+    <input type="password" class="form-control" id="exampleInputPassword1"name="loginpassword" required style="height: 35px; width: 450px">
+  </div>
+
+  <div class="form-group form-check">
+    <input type="checkbox" class="form-check-input" id="exampleCheck1" required style="height: 17px; width: 17px">
+    <label class="form-check-label" for="exampleCheck1" style="font-size: 16px">I agree to the login terms </label>
+  </div>
+
+   <button type="submit" class="btn btn-primary">Login</button>
+
+
+  </div>
+
+  </section>
+
+  </body>
+</html>
